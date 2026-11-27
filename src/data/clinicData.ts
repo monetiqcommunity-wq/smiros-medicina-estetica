@@ -86,53 +86,6 @@ export function buildWhatsAppUrl(message: string): string {
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Buongiorno Dott. Smiraglia, vorrei richiedere informazioni e disponibilità per una consulenza presso SMIROS Medicina Estetica a Pescara.';
 
-export const HERO_SLIDES = [
-  {
-    id: 'medicina-estetica',
-    tabLabel: 'Medicina estetica',
-    kicker: 'SMIROS Medicina Estetica · Pescara',
-    title: 'Armonia del volto, guidata dal rigore medico.',
-    subtitle:
-      'Nel mio studio a Pescara ti accolgo per percorsi personalizzati di medicina estetica e anti-aging, fondati su anatomia, ascolto e misura.',
-    image: CLINIC_IMAGES.facialAssessment,
-    imageAlt:
-      'Dott. Simone A. Smiraglia durante la valutazione anatomica del volto nello studio SMIROS di Pescara',
-    objectPosition: 'object-[50%_22%]',
-    ctaLabel: 'Prenota su WhatsApp',
-    whatsappMessage: DEFAULT_WHATSAPP_MESSAGE,
-  },
-  {
-    id: 'trattamenti-personalizzati',
-    tabLabel: 'Trattamenti personalizzati',
-    kicker: 'Protocolli ambulatoriali su misura',
-    title: 'Precisione clinica per pelle, volumi ed espressività.',
-    subtitle:
-      'Acido ialuronico, tossina botulinica, biorivitalizzazione e microneedling con Dermapen 4 calibrati sulle reali caratteristiche del tuo viso.',
-    image: CLINIC_IMAGES.dermapenDetail,
-    imageAlt:
-      'Trattamento di microneedling medico controllato con dispositivo Dermapen 4 presso SMIROS',
-    objectPosition: 'object-center',
-    ctaLabel: 'Richiedi informazioni su WhatsApp',
-    whatsappMessage:
-      'Buongiorno Dott. Smiraglia, vorrei ricevere informazioni sui trattamenti personalizzati presso SMIROS Medicina Estetica.',
-  },
-  {
-    id: 'studio-smiraglia',
-    tabLabel: 'Dott. Simone Smiraglia',
-    kicker: 'Direzione Sanitaria · Anestesia, Rianimazione e Medicina Estetica',
-    title: 'Sicurezza anestesiologica e attenzione individuale.',
-    subtitle:
-      'Eseguo personalmente ogni visita e seduta in Corso Vittorio Emanuele II, 310, dedicando a ogni paziente il tempo necessario.',
-    image: CLINIC_IMAGES.doctorPortrait,
-    imageAlt:
-      'Ritratto professionale del Dott. Simone A. Smiraglia nello studio SMIROS Medicina Estetica a Pescara',
-    objectPosition: 'object-[50%_30%]',
-    ctaLabel: 'Fissa la tua visita su WhatsApp',
-    whatsappMessage:
-      'Buongiorno Dott. Smiraglia, vorrei prenotare una prima visita conoscitiva presso lo studio di Pescara.',
-  },
-] as const;
-
 export const PHILOSOPHY_PILLARS: PhilosophyPillar[] = [
   {
     title: 'Analisi individuale prima di ogni trattamento',
