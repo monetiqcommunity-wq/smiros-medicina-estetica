@@ -64,6 +64,11 @@ export function TreatmentDetailPanel({
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1C1C1C]/45 via-transparent to-transparent"
             />
+            {treatment.isIllustrative ? (
+              <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-[#1C1C1C]/75 text-[10px] font-medium tracking-[0.04em] text-[#F8F5F0]">
+                Immagine illustrativa
+              </span>
+            ) : null}
           </div>
 
           {/* Right clinical information column */}

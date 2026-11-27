@@ -2,7 +2,7 @@ export type TreatmentCategory =
   | 'tutti'
   | 'viso-volumi'
   | 'qualita-cutanea'
-  | 'prevenzione';
+  | 'corpo';
 
 export interface TreatmentProtocol {
   id: string;
@@ -12,6 +12,7 @@ export interface TreatmentProtocol {
   image: string;
   imageAlt: string;
   imageObjectPos: string;
+  isIllustrative?: boolean;
   duration: string;
   recovery: string;
   shortDescription: string;
@@ -30,9 +31,6 @@ export interface TechnologyItem {
   id: string;
   title: string;
   category: string;
-  image: string;
-  imageAlt: string;
-  imageObjectPos: string;
   description: string;
   clinicalNote: string;
 }
@@ -70,6 +68,7 @@ export const CLINIC_INFO = {
 } as const;
 
 export const CLINIC_IMAGES = {
+  // Authentic studio & clinical photography
   studioMacbook: '/assets/aistudio/IMG_6879_daef3bd6.jpeg',
   waitingHall: '/assets/aistudio/IMG_6883_fc1a6c7b.jpeg',
   treatmentSuite: '/assets/aistudio/IMG_6886_cf28960d.jpeg',
@@ -77,6 +76,13 @@ export const CLINIC_IMAGES = {
   facialAssessment: '/assets/aistudio/79e48e76-e87c-47f6-bd68-472bab154ab4_5487e61a.png',
   precisionInjection: '/assets/aistudio/IMG_6882_de138f6b.jpeg',
   dermapenDetail: '/assets/aistudio/4F26F5D4-E0B3-4EF7-BCFA-F05C6351A397_479866b2.png',
+  // Illustrative editorial visuals
+  editorialPortraitHelix:
+    '/assets/aistudio/Ritratto_di_bellezza_con_elica_dorata_b1a611c1.png',
+  glassDoubleHelix:
+    '/assets/aistudio/Doppia_elica_di_vetro_scintillante_2c0b5d80.png',
+  bodyCareSilhouette:
+    '/assets/aistudio/Gambe_abbronzate_su_fondo_beige_lucido_232b0893.png',
 } as const;
 
 export function buildWhatsAppUrl(message: string): string {
@@ -84,23 +90,23 @@ export function buildWhatsAppUrl(message: string): string {
 }
 
 export const DEFAULT_WHATSAPP_MESSAGE =
-  'Buongiorno Dott. Smiraglia, vorrei richiedere informazioni e disponibilità per una consulenza presso SMIROS Medicina Estetica a Pescara.';
+  'Buongiorno Dott. Smiraglia, vorrei richiedere informazioni e disponibilità per una visita presso SMIROS Medicina Estetica a Pescara.';
 
 export const PHILOSOPHY_PILLARS: PhilosophyPillar[] = [
   {
-    title: 'Analisi individuale prima di ogni trattamento',
+    title: 'Diagnosi statica e dinamica del volto',
     description:
-      'Non applico schemi ripetitivi. Ogni volto presenta equilibri muscolari, spessori dermici e proporzioni proprie che richiedono una valutazione medica dedicata prima di decidere qualsiasi intervento.',
+      'Ogni distretto cutaneo e muscolare risponde a equilibri propri. L’analisi clinica a riposo e durante la mimica precede sempre la scelta dell’eventuale procedura.',
   },
   {
-    title: 'Sicurezza derivante dall’Anestesia e Rianimazione',
+    title: 'Dosaggi modulati nel tempo',
     description:
-      'La mia formazione specialistica ospedaliera orienta l’approccio ai piani anatomici vascolari, alla gestione del comfort durante la procedura e al rispetto dei protocolli clinici di sicurezza.',
+      'Preferisco interventi graduali e distribuiti in sedute mirate, evitando sovracorrezioni e rispettando l’anatomia individuale.',
   },
   {
-    title: 'Gradualità e naturalezza espressiva',
+    title: 'Dispositivi medici certificati CE',
     description:
-      'L’obiettivo medico è sostenere e valorizzare i tessuti rispettando la fisionomia personale, senza alterare l’espressività naturale del viso.',
+      'Ogni prodotto e dispositivo utilizzato in ambulatorio è tracciabile, documentato in cartella e selezionato per qualità biologica e compatibilità tissutale.',
   },
 ];
 
@@ -108,176 +114,143 @@ export const TREATMENT_CATEGORIES: {
   id: TreatmentCategory;
   label: string;
 }[] = [
-  { id: 'tutti', label: 'Tutti i trattamenti' },
+  { id: 'tutti', label: 'Tutti' },
   { id: 'viso-volumi', label: 'Viso e Volumi' },
   { id: 'qualita-cutanea', label: 'Qualità Cutanea' },
-  { id: 'prevenzione', label: 'Consulenza e Anti-Aging' },
+  { id: 'corpo', label: 'Corpo e Lassità' },
 ];
 
 export const TREATMENTS: TreatmentProtocol[] = [
   {
     id: 'armonizzazione-full-face',
-    title: 'Armonizzazione Full Face e Prima Visita',
-    category: 'prevenzione',
-    categoryLabel: 'Valutazione e Piano Clinico',
+    title: 'Prima Visita e Valutazione Full Face',
+    category: 'viso-volumi',
+    categoryLabel: 'Diagnostica del Volto',
     image: CLINIC_IMAGES.facialAssessment,
     imageAlt:
-      'Valutazione medica delle proporzioni del volto eseguita dal Dott. Simone A. Smiraglia',
+      'Dott. Simone A. Smiraglia durante la valutazione anatomica del volto con tutela privacy SMIROS',
     imageObjectPos: 'object-[50%_20%]',
     duration: '40 min',
     recovery: 'Nessun tempo di recupero',
     shortDescription:
-      'Visita medica specialistica per analizzare i volumi, la mimica e la qualità cutanea del volto e definire un piano personalizzato.',
+      'Esame medico dei terzi del volto, della qualità dermica e delle richieste del paziente per impostare un programma clinico ragionato.',
     natureOfTreatment:
-      'Consulenza medica diagnostica e pianificazione terapeutica su misura, propedeutica a qualunque eventuale procedura ambulatoriale.',
+      'Consulenza medica specialistica propedeutica a ogni trattamento ambulatoriale, dedicata ad anamnesi, studio delle proporzioni e definizione delle priorità.',
     possibleIndications: [
-      'Analisi complessiva delle proporzioni del terzo superiore, medio e inferiore',
-      'Programmazione graduale di interventi combinati di medicina estetica',
-      'Valutazione medica per percorsi di medicina preventiva e anti-aging',
+      'Valutazione integrata di terzo superiore, medio e inferiore del viso',
+      'Pianificazione graduale tra procedure iniettive e cura della pelle',
+      'Inquadramento preventivo anti-aging su misura',
     ],
     medicalEvaluationNote:
-      'Ogni trattamento viene proposto esclusivamente a seguito di visita medica individuale, anamnesi completa e verifica di assenza di controindicazioni.',
+      'Ogni eventuale procedura è indicata solo dopo visita diretta ed esclusione di controindicazioni cliniche.',
     sessionProcess:
-      'Esamino personalmente la struttura del volto sia a riposo sia in movimento, condividendo obiettivi realistici, priorità di intervento e tempi.',
+      'Osservo la mimica e i piani di sostegno facciale, illustrando al paziente possibilità reali, alternative e tempi di recupero.',
   },
   {
-    id: 'filler-acido-ialuronico',
-    title: 'Filler con Acido Ialuronico, Labbra e Rinofiller',
+    id: 'iniettivi-volto',
+    title: 'Tossina Botulinica e Filler con Acido Ialuronico',
     category: 'viso-volumi',
-    categoryLabel: 'Viso e Volumi',
-    image: CLINIC_IMAGES.treatmentSuite,
-    imageAlt:
-      'Sala medica attrezzata per trattamenti con acido ialuronico presso SMIROS Pescara',
-    imageObjectPos: 'object-[50%_65%]',
-    duration: '30–45 min',
-    recovery: 'Possibile lieve edema transitorio',
-    shortDescription:
-      'Trattamenti iniettivi con acido ialuronico medicale per filler labbra, rinofiller, solchi, occhiaie e sostegno dei volumi del volto.',
-    natureOfTreatment:
-      'Procedura medica ambulatoriale basata sull’impianto mirato di acidi ialuronici riassorbibili certificati CE, selezionati in base al piano anatomico.',
-    possibleIndications: [
-      'Filler labbra per idratazione, definizione del contorno o riequilibrio volumetrico',
-      'Rinofiller non chirurgico per lievi irregolarità del profilo nasale',
-      'Filler occhiaie, sostegno zigomatico e ridefinizione dell’ovale mandibolare',
-    ],
-    medicalEvaluationNote:
-      'La scelta della formulazione, della quantità e della tecnica (microcannula o ago sottile) è stabilita solo dopo valutazione clinica individuale.',
-    sessionProcess:
-      'Dopo preparazione anestetica locale o topica, eseguo l’infiltrazione rispettando i piani vascolari profondi e consegnando la tracciabilità del dispositivo.',
-  },
-  {
-    id: 'tossina-botulinica',
-    title: 'Tossina Botulinica (Terzo Superiore)',
-    category: 'viso-volumi',
-    categoryLabel: 'Viso e Mimica',
+    categoryLabel: 'Viso, Labbra e Mimica',
     image: CLINIC_IMAGES.precisionInjection,
     imageAlt:
-      'Dott. Simone A. Smiraglia durante trattamento iniettivo di precisione sul terzo superiore del volto',
-    imageObjectPos: 'object-[50%_28%]',
-    duration: '20–30 min',
-    recovery: 'Ripresa delle attività in giornata',
+      'Dott. Simone A. Smiraglia durante una procedura iniettiva di precisione in studio',
+    imageObjectPos: 'object-top',
+    duration: '30–45 min',
+    recovery: 'Ripresa in giornata o lieve edema transitorio',
     shortDescription:
-      'Micro-infiltrazioni mirate per attenuare le rughe d’espressione di fronte, glabella e area perioculare preservando la naturalezza.',
+      'Trattamenti iniettivi mirati per rughe d’espressione del terzo superiore, filler labbra, rinofiller, occhiaie e sostegno dei volumi.',
     natureOfTreatment:
-      'Trattamento medico ambulatoriale volto a modulare selettivamente l’iperattività dei muscoli mimici del terzo superiore del volto.',
+      'Impiego mirato di tossina botulinica e acidi ialuronici medicali riassorbibili selezionati per reologia e piano anatomico.',
     possibleIndications: [
-      'Rughe glabellari tra le sopracciglia',
-      'Linee dinamiche orizzontali della fronte',
-      'Rughe perioculari laterali',
+      'Modulazione di glabella, fronte e area perioculare tramite tossina botulinica',
+      'Filler labbra, solchi nasogenieni, occhiaie e ridefinizione mandibolare',
+      'Rinofiller non chirurgico in casi clinicamente selezionati',
     ],
     medicalEvaluationNote:
-      'Il dosaggio e i punti di inoculo vengono calibrati esclusivamente in base alla forza muscolare osservata durante la visita medica.',
+      'Formulazioni, volumi e scelta tra ago ultrasottile o microcannula sono decisi unicamente dopo visita medica.',
     sessionProcess:
-      'Eseguo una mappatura dinamica della mimica e procedo con micro-iniezioni mirate, programmando un controllo clinico di verifica dopo circa due settimane.',
+      'Previa preparazione topica o locale, procedo al trattamento consegnando al paziente la tracciabilità completa del dispositivo.',
   },
   {
-    id: 'dermapen-microneedling',
-    title: 'Microneedling Medico con Dermapen 4',
+    id: 'qualita-cutanea-dermapen',
+    title: 'Dermapen 4, Biorivitalizzazione e Peeling',
     category: 'qualita-cutanea',
-    categoryLabel: 'Qualità Cutanea',
+    categoryLabel: 'Rinnovamento Dermico',
     image: CLINIC_IMAGES.dermapenDetail,
     imageAlt:
-      'Applicazione clinica con dispositivo medico Dermapen 4 per il rinnovamento della pelle',
+      'Trattamento di microneedling medico controllato con dispositivo Dermapen 4 presso SMIROS',
     imageObjectPos: 'object-center',
     duration: '35–45 min',
     recovery: 'Lieve eritema per 24–48 ore',
     shortDescription:
-      'Stimolazione dermica meccanica di precisione con Dermapen 4 per migliorare texture cutanea, pori dilatati ed esiti cicatriziali.',
+      'Microneedling medico con Dermapen 4, biostimolazione dermica e peeling medici per grana cutanea, luminosità, pori ed esiti superficiali.',
     natureOfTreatment:
-      'Metodica di biostimolazione fisica controllata che genera micro-canali verticali nel derma per favorire il turnover cellulare e la sintesi di collagene.',
+      'Protocolli biologici e meccanici controllati per sostenere il turnover cellulare, la sintesi di collagene e l’idratazione del derma.',
     possibleIndications: [
-      'Irregolarità della grana cutanea e pori evidenti',
-      'Esiti cicatriziali superficiali post-acneici e linee sottili',
-      'Tonicità e luminosità di viso, collo e décolleté',
+      'Pori dilatati, rugosità sottili ed esiti cicatriziali post-acneici superficiali',
+      'Cute spenta, disidratata o foto-esposta di viso, collo e décolleté',
+      'Cicli stagionali di prevenzione e mantenimento della qualità cutanea',
     ],
     medicalEvaluationNote:
-      'La profondità d’azione e il numero di sedute vengono definiti dal medico in funzione del fototipo, dello spessore dermico e dello stato cutaneo.',
+      'Profondità d’azione del manipolo, acidi per peeling e frequenza delle sedute variano in base a fototipo e stato cutaneo.',
     sessionProcess:
-      'Previa detersione e crema anestetica topica, eseguo passaggi calibrati su ciascuna area associando soluzioni sterili specifiche e fotoprotezione finale.',
+      'Dopo preparazione anestetica locale ove indicata, eseguo passaggi calibrati su ciascuna area completando con protocollo lenitivo.',
   },
   {
-    id: 'biorivitalizzazione-peeling',
-    title: 'Biorivitalizzazione, Peeling e Anti-Aging',
-    category: 'qualita-cutanea',
-    categoryLabel: 'Qualità Cutanea e Prevenzione',
-    image: CLINIC_IMAGES.studioMacbook,
+    id: 'corpo-cellulite-lassita',
+    title: 'Cellulite, Lassità e Tono Cutaneo Corpo',
+    category: 'corpo',
+    categoryLabel: 'Medicina Estetica Corpo',
+    image: CLINIC_IMAGES.bodyCareSilhouette,
     imageAlt:
-      'Studio medico SMIROS a Pescara dedicato a consulenze di biorivitalizzazione, peeling e medicina anti-aging',
-    imageObjectPos: 'object-[50%_68%]',
+      'Composizione editoriale illustrativa dedicata al tono e alla qualità cutanea del corpo',
+    imageObjectPos: 'object-[50%_40%]',
+    isIllustrative: true,
     duration: '30–45 min',
-    recovery: 'Minimo o nullo in base al protocollo',
+    recovery: 'Ritorno immediato alle attività',
     shortDescription:
-      'Percorsi di idratazione dermica profonda, peeling medici e medicina preventiva per sostenere la salute della pelle nel tempo.',
+      'Percorsi ambulatoriali per inestetismi legati a cellulite, microcircolo e lassità cutanea localizzata, definiti in sede di visita.',
     natureOfTreatment:
-      'Protocolli medici dedicati al miglioramento biologico della qualità cutanea e alla prevenzione del fotoinvecchiamento.',
+      'Valutazione clinica del tessuto sottocutaneo e pianificazione di metodiche mediche quali carbossiterapia e tecniche mirate per il microcircolo.',
     possibleIndications: [
-      'Pelle disidratata, spenta o esposta a stress ossidativo',
-      'Prevenzione dell’invecchiamento cutaneo precoce',
-      'Esfoliazione chimica medicale controllata tramite peeling',
+      'Alterazioni del microcircolo periferico e ritenzione idrica localizzata',
+      'Lassità cutanea lieve o moderata di arti inferiori e aree corporee mirate',
+      'Miglioramento graduale della compattezza superficiale dei tessuti',
     ],
     medicalEvaluationNote:
-      'La scelta tra biorivitalizzazione iniettiva, peeling medico o programma combinato viene stabilita dopo valutazione clinica della cute.',
+      'Immagine a scopo puramente illustrativo. L’indicazione clinica effettiva e il numero di sedute sono stabiliti esclusivamente dal medico durante la visita.',
     sessionProcess:
-      'Le sedute vengono programmate in cicli personalizzati stagionali, integrate da indicazioni dermocosmetiche essenziali per il mantenimento domiciliare.',
+      'Dopo inquadramento anamnestico, imposto un ciclo ambulatoriale progressivo eventualmente associato a indicazioni comportamentali.',
   },
 ];
 
 export const VERIFIED_TECHNOLOGIES: TechnologyItem[] = [
   {
     id: 'tech-dermapen',
-    title: 'Dermapen 4 per Microneedling Medico',
-    category: 'Dispositivo medico certificato',
-    image: CLINIC_IMAGES.dermapenDetail,
-    imageAlt: 'Dettaglio del manipolo Dermapen 4 durante trattamento medico in studio',
-    imageObjectPos: 'object-center',
+    title: 'Dermapen 4 a profondità digitale',
+    category: 'Strumentazione dermica',
     description:
-      'Sistema di microneedling medico dotato di regolazione digitale della profondità per intervenire in modo selettivo sui diversi spessori cutanei di viso, collo e décolleté.',
+      'Manipolo medicale per microneedling con controllo micrometrico della penetrazione, adattabile ai diversi spessori di viso, collo e décolleté.',
     clinicalNote:
-      'Consente di modulare la stimolazione dermica e la veicolazione di attivi sterili con recupero contenuto.',
+      'Permette di veicolare soluzioni sterili mirate con tempi di ripresa sociali brevi.',
   },
   {
-    id: 'tech-iniettivi',
-    title: 'Tecnica Iniettiva di Precisione e Microcannule',
-    category: 'Metodologia ambulatoriale',
-    image: CLINIC_IMAGES.precisionInjection,
-    imageAlt: 'Esecuzione di procedura iniettiva di precisione in ambiente medico controllato',
-    imageObjectPos: 'object-top',
+    id: 'tech-microcannule',
+    title: 'Microcannule atraumatiche e aghi sottili',
+    category: 'Metodica iniettiva',
     description:
-      'Utilizzo combinato di aghi ultrasottili e microcannule atraumatiche a punta smussa in base al distretto da trattare, con acidi ialuronici medicali tracciabili.',
+      'Selezione differenziata di microcannule a punta smussa e aghi ultrasottili per rispettare i piani vascolari e ridurre ecchimosi ed edema.',
     clinicalNote:
-      'Approccio mirato a ridurre il trauma tessutale e rispettare l’anatomia vascolare.',
+      'Associata esclusivamente a formulazioni medicali riassorbibili certificate.',
   },
   {
-    id: 'tech-anestesia',
-    title: 'Protocolli di Valutazione e Comfort Anestesiologico',
-    category: 'Sicurezza clinica',
-    image: CLINIC_IMAGES.facialAssessment,
-    imageAlt: 'Analisi clinica preliminare del volto eseguita dal Dott. Simone A. Smiraglia',
-    imageObjectPos: 'object-[50%_22%]',
+    id: 'tech-tessuti',
+    title: 'Terapie per microcircolo e biorigenerazione',
+    category: 'Prevenzione e corpo',
     description:
-      'Integrazione delle competenze di Anestesia e Rianimazione nella preparazione topica o locale della cute e nel monitoraggio clinico del paziente.',
+      'Integrazione tra biorivitalizzazione dermica, peeling controllati e metodiche ambulatoriali per cellulite e lassità tissutale.',
     clinicalNote:
-      'Nessuna tecnologia o macchinario non espressamente verificato viene aggiunto: ogni strumento presente in studio risponde a reali protocolli medici.',
+      'Protocolli calibrati stagionalmente sulla risposta biologica individuale.',
   },
 ];
 
@@ -286,30 +259,30 @@ export const STUDIO_GALLERY: StudioGalleryItem[] = [
     id: 'reception-attesa',
     src: CLINIC_IMAGES.waitingHall,
     alt: 'Area accoglienza e ingresso di SMIROS Medicina Estetica in Corso Vittorio Emanuele II, 310 a Pescara',
-    title: 'Accoglienza e ingresso riservato',
+    title: 'Accoglienza riservata',
     locationNote: 'Corso Vittorio Emanuele II, 310 · Pescara',
     description:
-      'Spazio d’ingresso luminoso e silenzioso, organizzato esclusivamente su appuntamento per garantire privacy senza attese.',
+      'Ingresso luminoso e silenzioso, gestito solo su appuntamento per garantire puntualità e privacy senza attese.',
     objectPositionClass: 'object-center',
   },
   {
     id: 'studio-direzionale',
     src: CLINIC_IMAGES.studioMacbook,
     alt: 'Postazione medica di consulenza e vista sulla sala trattamenti di SMIROS Medicina Estetica',
-    title: 'Area colloquio e pianificazione clinica',
-    locationNote: 'Prima visita e ascolto individuale',
+    title: 'Studio di consulenza',
+    locationNote: 'Anamnesi e pianificazione',
     description:
-      'La postazione dedicata all’anamnesi e alla definizione condivisa del percorso medico personalizzato.',
+      'Lo spazio dedicato al colloquio clinico preliminare, alla lettura dell’anatomia facciale e alla definizione del percorso.',
     objectPositionClass: 'object-[50%_68%]',
   },
   {
     id: 'sala-trattamenti',
     src: CLINIC_IMAGES.treatmentSuite,
-    alt: 'Sala trattamenti ambulatoriale SMIROS Medicina Estetica con lettino medico, luce dedicata e scrivania',
-    title: 'Sala trattamenti ambulatoriale',
-    locationNote: 'Ambiente medico attrezzato',
+    alt: 'Sala trattamenti ambulatoriale SMIROS Medicina Estetica con lettino medico e illuminazione dedicata',
+    title: 'Sala ambulatoriale',
+    locationNote: 'Procedure mediche',
     description:
-      'Ambienti igienizzati e illuminazione dedicata per l’esecuzione delle procedure di medicina estetica.',
+      'Ambiente clinico attrezzato e sanificato con illuminazione dedicata per l’esecuzione delle sedute in sicurezza.',
     objectPositionClass: 'object-[50%_66%]',
   },
 ];
@@ -317,32 +290,26 @@ export const STUDIO_GALLERY: StudioGalleryItem[] = [
 export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'prima-visita',
-    question: 'Come si svolge la prima visita presso SMIROS Medicina Estetica?',
+    question: 'Come si svolge la prima visita presso lo studio?',
     answer:
-      'La prima visita dura circa 40 minuti ed è dedicata esclusivamente all’ascolto, all’anamnesi clinica e all’analisi anatomica del volto. Al termine condividiamo un piano chiaro con indicazioni mediche, tempi e costi prima di decidere se procedere.',
+      'La visita dura circa 40 minuti ed è dedicata ad anamnesi, esame obiettivo del viso o dell’area di interesse e definizione scritta di indicazioni, tempi e costi prima di procedere.',
   },
   {
-    id: 'dolore-sicurezza',
-    question: 'I trattamenti con acido ialuronico, botulino o Dermapen 4 sono fastidiosi?',
+    id: 'comfort-recupero',
+    question: 'I trattamenti sono dolorosi o richiedono assenza dal lavoro?',
     answer:
-      'Grazie alla mia formazione in Anestesia e Rianimazione adotto protocolli analgesici mirati (creme anestetiche efficaci, microcannule atraumatiche e tecniche delicate) per rendere ogni seduta confortevole e ben tollerata.',
+      'Utilizzo protocolli anestesiologici topici o locali mirati e microcannule atraumatiche per rendere le sedute ben tollerate. Nella maggior parte dei casi la ripresa sociale avviene in giornata o entro 24–48 ore.',
   },
   {
-    id: 'naturalezza',
-    question: 'Come si evita un risultato artificiale o eccessivo?',
+    id: 'tracciabilita',
+    question: 'Che tipo di prodotti vengono impiegati in ambulatorio?',
     answer:
-      'Lavoro per micro-incrementi rispettando i piani anatomici e le proporzioni individuali. Quando indicato, distribuisco il percorso in sedute progressive evitando sovracorrezioni.',
+      'Impiego esclusivamente dispositivi medici e farmaci autorizzati e certificati CE, consegnando al termine della seduta il riferimento di tracciabilità.',
   },
   {
-    id: 'prenotazione-whatsapp',
-    question: 'Come posso richiedere informazioni o fissare un appuntamento?',
+    id: 'sede-orari',
+    question: 'Dove si trova SMIROS e come si prenota un appuntamento?',
     answer:
-      'Puoi inviare un messaggio su WhatsApp al +39 351 317 1020 oppure compilare la richiesta guidata in fondo a questa pagina. Lo studio riceve su appuntamento dal lunedì al venerdì, dalle 09:00 alle 19:30.',
-  },
-  {
-    id: 'sede-pescara',
-    question: 'Dove si trova lo studio e chi esegue i trattamenti?',
-    answer:
-      'SMIROS Medicina Estetica si trova a Pescara in Corso Vittorio Emanuele II, 310. Tutte le visite e i trattamenti sono eseguiti personalmente da me, Dott. Simone A. Smiraglia.',
+      'Lo studio è in Corso Vittorio Emanuele II, 310 a Pescara e riceve su appuntamento dal lunedì al venerdì (09:00–19:30) tramite WhatsApp o telefono al +39 351 317 1020.',
   },
 ];

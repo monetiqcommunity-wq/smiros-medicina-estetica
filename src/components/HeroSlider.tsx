@@ -161,7 +161,7 @@ export function HeroSlider() {
 
           <h1 className="mt-4 sm:mt-5 font-display text-[clamp(2.45rem,5.4vw,4.95rem)] font-medium leading-[1.03] tracking-[-0.018em] text-[#F8F5F0] drop-shadow-[0_2px_18px_rgba(28,28,28,0.35)]">
             <MaskedBlurHeading
-              lines={['Armonia del volto,', 'guidata dal rigore medico.']}
+              lines={['Medicina estetica,', 'precisione clinica.']}
               immediate
               baseDelay={0.2}
               wordStagger={0.06}
@@ -171,9 +171,9 @@ export function HeroSlider() {
 
           <BlurFade immediate delay={0.95}>
             <p className="mt-4 sm:mt-5 mx-auto text-[14px] sm:text-[17px] leading-relaxed text-[#E6D8C9] max-w-[58ch] drop-shadow-[0_1px_12px_rgba(28,28,28,0.4)]">
-              Direzione sanitaria {CLINIC_INFO.doctorName}. Valutazione
-              anatomica diretta e protocolli medici personalizzati in Corso
-              Vittorio Emanuele II, 310.
+              Direzione sanitaria {CLINIC_INFO.doctorName}. Valutazioni
+              mediche dirette e protocolli ambulatoriali in Corso Vittorio
+              Emanuele II, 310 a Pescara.
             </p>
           </BlurFade>
 

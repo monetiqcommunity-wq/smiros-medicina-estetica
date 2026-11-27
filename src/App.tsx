@@ -213,29 +213,41 @@ export default function App() {
           {/* 1. Full-Viewport Cinematic Video Opening */}
           <HeroSlider />
 
-          {/* 2. Presentazione di SMIROS & Filosofia (Seamless transition from hero tonal bridge · Avorio caldo #F8F5F0) */}
+          {/* 2. Principi Clinici (Photo-Left Asymmetric Editorial + Illustrative Art · Avorio caldo #F8F5F0) */}
           <section
             id="filosofia"
-            className="-mt-px pt-10 pb-16 sm:pt-14 sm:pb-20 bg-[#F8F5F0]"
+            className="-mt-px pt-12 pb-16 sm:pt-16 sm:pb-20 bg-[#F8F5F0]"
           >
             <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <div className="lg:col-span-7 space-y-6">
+                <div className="lg:col-span-5 order-2 lg:order-1">
+                  <ClipParallaxPhoto
+                    parallaxRange={16}
+                    className="relative aspect-[4/5] w-full rounded-md overflow-hidden bg-[#E6D8C9] group"
+                  >
+                    <ResilientImage
+                      src={CLINIC_IMAGES.editorialPortraitHelix}
+                      alt="Composizione editoriale illustrativa dedicata alla biologia cutanea e alla ricerca rigenerativa"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-editorial group-hover:scale-[1.03]"
+                    />
+                  </ClipParallaxPhoto>
+                </div>
+
+                <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
                   <div>
                     <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#6B6056]">
-                      SMIROS Medicina Estetica · Pescara
+                      Approccio Diagnostico
                     </p>
                     <h2 className="mt-2.5 font-display text-3xl sm:text-4xl lg:text-[44px] font-medium leading-[1.08] tracking-tight text-[#1C1C1C]">
                       <MaskedBlurHeading
-                        lines={['Equilibrio medico,', 'misura e ascolto individuale.']}
+                        lines={['Prima di intervenire,', 'si osserva l’anatomia.']}
                       />
                     </h2>
                     <BlurFade delay={0.12}>
-                      <p className="mt-4 text-sm sm:text-[15px] leading-relaxed text-[#5E544C] max-w-[60ch]">
-                        Nel mio studio in Corso Vittorio Emanuele II, 310 a Pescara
-                        accolgo ogni paziente con un approccio medico rigoroso:
-                        osservo le proporzioni del volto, ascolto le tue richieste e
-                        propongo esclusivamente percorsi indicati sul piano clinico.
+                      <p className="mt-4 text-sm sm:text-[15px] leading-relaxed text-[#5E544C] max-w-[58ch]">
+                        Ogni indicazione terapeutica nasce dall’analisi dei volumi,
+                        degli spessori cutanei e della risposta biologica individuale,
+                        senza protocolli standardizzati.
                       </p>
                     </BlurFade>
                   </div>
@@ -257,29 +269,16 @@ export default function App() {
                     ))}
                   </div>
                 </div>
-
-                <div className="lg:col-span-5">
-                  <ClipParallaxPhoto
-                    parallaxRange={18}
-                    className="relative aspect-[3/4] w-full rounded-md overflow-hidden bg-[#E6D8C9] group"
-                  >
-                    <ResilientImage
-                      src={CLINIC_IMAGES.waitingHall}
-                      alt="Ingresso dello studio SMIROS Medicina Estetica a Pescara con listino trattamenti e sala visita"
-                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-editorial group-hover:scale-[1.03]"
-                    />
-                  </ClipParallaxPhoto>
-                </div>
               </div>
             </div>
           </section>
 
-          {/* 3 & 4. Trattamenti: Visual Editorial Grid + Interactive Detail Drawer */}
+          {/* 3. Aree Cliniche: Zig-Zag Bento Editorial Grid + Interactive Detail Drawer */}
           <TreatmentShowcase
             onOpenTreatment={(treatment) => setActiveTreatmentModal(treatment)}
           />
 
-          {/* 5. Presentazione del Dott. Simone A. Smiraglia (Dark · Nero carbone #1C1C1C) */}
+          {/* 4. Direzione Sanitaria: Dott. Simone A. Smiraglia & Competenze Anestesiologiche (Dark · #1C1C1C) */}
           <section
             id="medico"
             className="py-16 sm:py-24 bg-[#1C1C1C] text-[#F8F5F0]"
@@ -288,7 +287,7 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                 <div className="lg:col-span-5 relative group">
                   <ClipParallaxPhoto
-                    parallaxRange={16}
+                    parallaxRange={14}
                     className="relative aspect-[3/4] w-full"
                   >
                     <ResilientImage
@@ -321,47 +320,37 @@ export default function App() {
                   </BlurFade>
                   <BlurFade delay={0.16}>
                     <p className="text-[15px] sm:text-base leading-relaxed tracking-[0.01em] text-[#E6D8C9]/90 max-w-[60ch]">
-                      La mia formazione specialistica in Anestesia e Rianimazione
-                      rappresenta il fondamento della mia attività in medicina estetica.
-                      Eseguo personalmente ogni visita e ogni trattamento nel mio
-                      studio di Pescara, unendo la conoscenza rigorosa dei piani
-                      anatomici e vascolari alla gestione attenta del comfort durante
-                      la seduta.
-                    </p>
-                  </BlurFade>
-                  <BlurFade delay={0.22}>
-                    <p className="text-sm leading-relaxed tracking-[0.01em] text-[#E6D8C9]/80 max-w-[60ch]">
-                      Credo in una medicina estetica trasparente, priva di promesse
-                      irrealistiche: ogni indicazione viene condivisa in sede di visita
-                      con chiarezza sulle possibilità cliniche, sui tempi di recupero e
-                      sulla tracciabilità dei dispositivi utilizzati.
+                      La specializzazione in Anestesia e Rianimazione guida il mio
+                      lavoro in ambito ambulatoriale: conoscenza rigorosa dei piani
+                      vascolari, gestione mirata del comfort durante la seduta ed
+                      esecuzione personale di ogni visita e trattamento.
                     </p>
                   </BlurFade>
 
-                  <BlurFade delay={0.28}>
+                  <BlurFade delay={0.24}>
                     <div className="pt-6 border-t border-[#82766B]/35 grid grid-cols-1 sm:grid-cols-3 gap-6">
                       <div>
                         <p className="font-display text-2xl font-medium text-[#F8F5F0]">
                           Rapporto 1:1
                         </p>
                         <p className="mt-1 text-xs leading-relaxed text-[#E6D8C9]/80">
-                          Visite e procedure seguite direttamente dal medico
+                          Ogni visita e seduta seguita direttamente dal medico
                         </p>
                       </div>
                       <div>
                         <p className="font-display text-2xl font-medium text-[#F8F5F0]">
-                          Sicurezza clinica
+                          Anestesia e comfort
                         </p>
                         <p className="mt-1 text-xs leading-relaxed text-[#E6D8C9]/80">
-                          Competenza anestesiologica e protocolli di comfort mirati
+                          Protocolli analgesici topici o locali dedicati
                         </p>
                       </div>
                       <div>
                         <p className="font-display text-2xl font-medium text-[#F8F5F0]">
-                          Tracciabilità CE
+                          Chiarezza clinica
                         </p>
                         <p className="mt-1 text-xs leading-relaxed text-[#E6D8C9]/80">
-                          Dispositivi medici certificati e documentati al paziente
+                          Indicazioni scritte, alternative e tempi di recupero reali
                         </p>
                       </div>
                     </div>
@@ -371,106 +360,58 @@ export default function App() {
             </div>
           </section>
 
-          {/* Full-Bleed Atmospheric Parallax Photographic Interlude */}
-          <section
-            ref={interludeRef}
-            aria-label="Approccio clinico SMIROS"
-            className="relative h-[44vh] sm:h-[52vh] w-full overflow-hidden bg-[#1C1C1C] flex items-center justify-center"
-          >
-            <motion.div
-              style={{ y: interludeY }}
-              className="absolute inset-0 -top-8 -bottom-8 will-change-transform"
-            >
-              <img
-                src={CLINIC_IMAGES.precisionInjection}
-                alt="Dott. Simone A. Smiraglia durante un trattamento di medicina estetica di precisione"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-[50%_28%]"
-              />
-            </motion.div>
+          {/* 5. Ricerca, Metodologie e Dispositivi (Full-Bleed Parallax Glass Helix + 3-Col Architectural Index) */}
+          <section id="tecnologie" className="bg-[#F8F5F0]">
             <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-[#1C1C1C]/62"
-            />
-            <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
-              <p className="font-display text-2xl sm:text-4xl lg:text-[42px] font-medium italic leading-[1.18] text-[#F8F5F0] text-balance">
-                <BlurTextSequence text="Ogni gesto medico unisce precisione anatomica, misura e rispetto per l’espressione naturale." />
-              </p>
-            </div>
-          </section>
-
-          {/* 6. Tecnologia e Innovazione (Photographic Detail Rows · Avorio caldo #F8F5F0) */}
-          <section
-            id="tecnologie"
-            className="py-16 sm:py-22 bg-[#F8F5F0]"
-          >
-            <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
-              <div className="max-w-2xl pb-10 border-b border-[#E6D8C9]">
-                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#6B6056]">
-                  Tecnologia e Metodologie
+              ref={interludeRef}
+              className="relative h-[44vh] sm:h-[52vh] w-full overflow-hidden bg-[#1C1C1C] flex items-center justify-center"
+            >
+              <motion.div
+                style={{ y: interludeY }}
+                className="absolute inset-0 -top-8 -bottom-8 will-change-transform"
+              >
+                <ResilientImage
+                  src={CLINIC_IMAGES.glassDoubleHelix}
+                  alt="Rappresentazione illustrativa della struttura molecolare cutanea per medicina rigenerativa e biostimolazione"
+                  className="w-full h-full object-cover object-center"
+                />
+              </motion.div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-b from-[#1C1C1C]/62 via-[#1C1C1C]/48 to-[#1C1C1C]/72"
+              />
+              <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#E6D8C9]">
+                  Tecnologia e Metodiche
                 </p>
-                <h2 className="mt-2.5 font-display text-3xl sm:text-4xl lg:text-[42px] font-medium leading-[1.08] tracking-tight text-[#1C1C1C]">
-                  <MaskedBlurHeading
-                    lines={['Strumenti e metodiche', 'effettivamente impiegati in studio.']}
-                  />
+                <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-[46px] font-medium leading-[1.12] text-[#F8F5F0] text-balance">
+                  <BlurTextSequence text="Strumenti selettivi al servizio della biologia cutanea." />
                 </h2>
-                <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-[#5E544C]">
-                  Le immagini documentano reali dettagli procedurali e dispositivi
-                  verificati presso lo studio SMIROS di Pescara.
-                </p>
               </div>
+            </div>
 
-              <div className="divide-y divide-[#E6D8C9]">
-                {VERIFIED_TECHNOLOGIES.map((tech, index) => {
-                  const isReversed = index % 2 === 1;
-                  return (
-                    <BlurFade
-                      key={tech.id}
-                      delay={0.05}
-                      className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
-                    >
-                      <div
-                        className={`lg:col-span-5 group ${
-                          isReversed ? 'lg:order-2' : 'lg:order-1'
-                        }`}
-                      >
-                        <ClipParallaxPhoto
-                          parallaxRange={tech.id === 'tech-iniettivi' ? 4 : 12}
-                          className={`relative rounded-md overflow-hidden bg-[#E6D8C9] ${
-                            tech.id === 'tech-iniettivi'
-                              ? 'aspect-[3/4] w-full max-w-[340px] mx-auto'
-                              : 'aspect-[4/3] w-full'
-                          }`}
-                        >
-                          <ResilientImage
-                            src={tech.image}
-                            alt={tech.imageAlt}
-                            className={`w-full h-full object-cover ${tech.imageObjectPos} transition-transform duration-700 ease-editorial group-hover:scale-[1.03]`}
-                          />
-                        </ClipParallaxPhoto>
-                      </div>
-
-                      <div
-                        className={`lg:col-span-7 space-y-3 ${
-                          isReversed ? 'lg:order-1' : 'lg:order-2'
-                        }`}
-                      >
-                        <p className="text-xs font-medium uppercase tracking-[0.1em] text-[#6B6056]">
-                          {tech.category}
-                        </p>
-                        <h3 className="font-display text-2xl sm:text-3xl font-medium text-[#1C1C1C]">
-                          {tech.title}
-                        </h3>
-                        <p className="text-sm sm:text-[15px] leading-relaxed text-[#5E544C] max-w-[60ch]">
-                          {tech.description}
-                        </p>
-                        <p className="pt-1 text-xs font-medium text-[#6B6056]">
-                          {tech.clinicalNote}
-                        </p>
-                      </div>
-                    </BlurFade>
-                  );
-                })}
+            <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 sm:py-16">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 border-t border-b border-[#E6D8C9] py-10">
+                {VERIFIED_TECHNOLOGIES.map((tech, index) => (
+                  <BlurFade
+                    key={tech.id}
+                    delay={index * 0.08}
+                    className="space-y-2.5 md:border-r md:last:border-r-0 md:border-[#E6D8C9] md:pr-8 md:last:pr-0"
+                  >
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-[#6B6056]">
+                      {tech.category}
+                    </p>
+                    <h3 className="font-display text-2xl font-medium text-[#1C1C1C]">
+                      {tech.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#5E544C]">
+                      {tech.description}
+                    </p>
+                    <p className="pt-1 text-xs font-medium text-[#6B6056]">
+                      {tech.clinicalNote}
+                    </p>
+                  </BlurFade>
+                ))}
               </div>
             </div>
           </section>
