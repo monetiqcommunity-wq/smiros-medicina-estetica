@@ -221,16 +221,38 @@ export default function App() {
             <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                 <div className="lg:col-span-5 order-2 lg:order-1">
-                  <ClipParallaxPhoto
-                    parallaxRange={16}
-                    className="relative aspect-[4/5] w-full rounded-md overflow-hidden bg-[#E6D8C9] group"
-                  >
-                    <ResilientImage
-                      src={CLINIC_IMAGES.editorialPortraitHelix}
-                      alt="Ritratto editoriale dai toni caldi dedicato alla luminosità e all’equilibrio cutaneo"
-                      className="w-full h-full object-cover object-[50%_20%] transition-transform duration-700 ease-editorial group-hover:scale-[1.03]"
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F8F5F0] group">
+                    <ClipParallaxPhoto
+                      parallaxRange={10}
+                      className="w-full h-full bg-[#F8F5F0]"
+                    >
+                      <ResilientImage
+                        src={CLINIC_IMAGES.editorialPortraitHelix}
+                        alt="Ritratto editoriale dai toni caldi dedicato alla luminosità e all’equilibrio cutaneo"
+                        className="w-full h-full object-cover object-[50%_18%] scale-[1.06] brightness-[1.03] contrast-[0.96] transition-transform duration-700 ease-editorial group-hover:scale-[1.08]"
+                      />
+                    </ClipParallaxPhoto>
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_78%_76%_at_50%_46%,transparent_48%,rgba(248,245,240,0.48)_76%,#F8F5F0_98%)]"
                     />
-                  </ClipParallaxPhoto>
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 top-0 h-20 sm:h-24 bg-gradient-to-b from-[#F8F5F0] via-[#F8F5F0]/50 to-transparent"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-t from-[#F8F5F0] via-[#F8F5F0]/55 to-transparent"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-y-0 left-0 w-14 sm:w-20 bg-gradient-to-r from-[#F8F5F0] via-[#F8F5F0]/50 to-transparent"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-y-0 right-0 w-14 sm:w-20 bg-gradient-to-l from-[#F8F5F0] via-[#F8F5F0]/50 to-transparent"
+                    />
+                  </div>
                 </div>
 
                 <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
