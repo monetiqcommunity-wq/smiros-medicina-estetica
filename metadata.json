@@ -1,0 +1,6 @@
+{
+  "name": "SMIROS Medicina Estetica",
+  "description": "Studio medico specialistico di Medicina Estetica, Anti-Aging e Preventiva diretto dal Dott. Simone A. Smiraglia a Pescara. Prenotazione consulenze su WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
