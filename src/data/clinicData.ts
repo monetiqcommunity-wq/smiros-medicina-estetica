@@ -78,7 +78,7 @@ export const CLINIC_IMAGES = {
   dermapenDetail: '/assets/aistudio/4F26F5D4-E0B3-4EF7-BCFA-F05C6351A397_479866b2.png',
   // Illustrative editorial visuals
   editorialPortraitHelix:
-    '/assets/aistudio/Ritratto_di_bellezza_con_elica_dorata_b1a611c1.png',
+    '/assets/aistudio/Ritratto_beauty_dai_toni_dorati_0fa69522.png',
   glassDoubleHelix:
     '/assets/aistudio/Doppia_elica_di_vetro_scintillante_2c0b5d80.png',
   bodyCareSilhouette:

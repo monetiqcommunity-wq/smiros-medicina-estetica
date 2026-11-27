@@ -227,8 +227,8 @@ export default function App() {
                   >
                     <ResilientImage
                       src={CLINIC_IMAGES.editorialPortraitHelix}
-                      alt="Composizione editoriale illustrativa dedicata alla biologia cutanea e alla ricerca rigenerativa"
-                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-editorial group-hover:scale-[1.03]"
+                      alt="Ritratto editoriale dai toni caldi dedicato alla luminosità e all’equilibrio cutaneo"
+                      className="w-full h-full object-cover object-[50%_20%] transition-transform duration-700 ease-editorial group-hover:scale-[1.03]"
                     />
                   </ClipParallaxPhoto>
                 </div>
