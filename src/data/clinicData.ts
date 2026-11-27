@@ -261,7 +261,7 @@ export const VERIFIED_TECHNOLOGIES: TechnologyItem[] = [
     category: 'Metodologia ambulatoriale',
     image: CLINIC_IMAGES.precisionInjection,
     imageAlt: 'Esecuzione di procedura iniettiva di precisione in ambiente medico controllato',
-    imageObjectPos: 'object-[50%_30%]',
+    imageObjectPos: 'object-top',
     description:
       'Utilizzo combinato di aghi ultrasottili e microcannule atraumatiche a punta smussa in base al distretto da trattare, con acidi ialuronici medicali tracciabili.',
     clinicalNote:

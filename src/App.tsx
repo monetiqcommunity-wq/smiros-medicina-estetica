@@ -435,8 +435,12 @@ export default function App() {
                         }`}
                       >
                         <ClipParallaxPhoto
-                          parallaxRange={12}
-                          className="relative aspect-[4/3] w-full rounded-md overflow-hidden bg-[#E6D8C9]"
+                          parallaxRange={tech.id === 'tech-iniettivi' ? 4 : 12}
+                          className={`relative rounded-md overflow-hidden bg-[#E6D8C9] ${
+                            tech.id === 'tech-iniettivi'
+                              ? 'aspect-[3/4] w-full max-w-[340px] mx-auto'
+                              : 'aspect-[4/3] w-full'
+                          }`}
                         >
                           <ResilientImage
                             src={tech.image}
