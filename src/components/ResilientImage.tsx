@@ -22,12 +22,12 @@ export function ResilientImage({
       <div
         role="img"
         aria-label={alt}
-        className={`flex flex-col items-center justify-center bg-[#EAE2D8]/50 text-[#202322] p-8 text-center border border-[#EAE2D8] ${className}`}
+        className={`flex flex-col items-center justify-center bg-[#E6D8C9]/50 text-[#1C1C1C] p-8 text-center border border-[#E6D8C9] ${className}`}
       >
-        <p className="font-display text-xl font-medium tracking-tight text-[#202322]">
+        <p className="font-display text-xl font-medium tracking-tight text-[#1C1C1C]">
           {fallbackTitle}
         </p>
-        <p className="mt-1 text-xs text-[#6E665E]">{fallbackSubtitle}</p>
+        <p className="mt-1 text-xs text-[#6B6056]">{fallbackSubtitle}</p>
       </div>
     );
   }
